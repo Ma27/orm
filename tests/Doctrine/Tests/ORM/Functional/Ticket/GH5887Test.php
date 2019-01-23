@@ -28,6 +28,7 @@ class GH5887Test extends OrmFunctionalTestCase
 
     public function testLazyLoadsForeignEntitiesInOneToOneRelationWhileHavingCustomIdObject()
     {
+        $this->markTestSkipped('The fix has been reverted due to further breakage: https://github.com/doctrine/orm/issues/7579');
         $customerId = new GH5887CustomIdObject(1);
         $customer = new GH5887Customer();
         $customer->setId($customerId);

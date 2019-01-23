@@ -802,7 +802,7 @@ class BasicEntityPersister implements EntityPersister
                 );
             }
 
-            $computedIdentifier[$targetClass->getFieldForColumn($targetKeyColumn)] =
+            $computedIdentifier[$this->getSQLTableAlias($targetClass->name) . "." . $targetKeyColumn] =
                 $sourceClass->reflFields[$sourceClass->fieldNames[$sourceKeyColumn]]->getValue($sourceEntity);
         }
 
